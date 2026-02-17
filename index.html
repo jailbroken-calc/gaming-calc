@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jailbroken Gaming Calculators - TI-84 Plus CE with Pre-Loaded Games</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tagline {
+            color: #666;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .hero h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 4px solid #667eea;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-title {
+            font-size: 1.3em;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .product-condition {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 2em;
+            color: #667eea;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .buy-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            margin-top: 10px;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .games-section {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .games-section h2 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .game-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .game-item:hover {
+            transform: scale(1.05);
+        }
+
+        .custom-games {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #667eea;
+        }
+
+        .custom-games h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .custom-games p {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .features {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .features h2 {
+            color: #764ba2;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-item h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            color: #666;
+            margin: 10px 0;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Gaming Calculators 🎮</h1>
+            <p class="tagline">TI-84 Plus CE Calculators Pre-Loaded with Classic Games</p>
+        </header>
+
+        <div class="hero">
+            <h2>Why Settle for Just Math?</h2>
+            <p>Get a fully functional TI-84 Plus CE graphing calculator with 15+ pre-loaded classic games!</p>
+            <p>Perfect for students who want to have some fun during study breaks, or anyone who appreciates retro gaming on-the-go.</p>
+            <p><strong>✓ Fully Functional Calculator</strong> | <strong>✓ Pre-Loaded Games</strong> | <strong>✓ Ready to Use</strong></p>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://i.ebayimg.com/images/g/XLsAAeSwtVppitk-/s-l1600.jpg" alt="TI-84 Plus CE Calculator with Games" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">TI-84 Plus CE - Used Condition</h3>
+                    <span class="product-condition"></span>
+                    <p class="product-price">$140.00</p>
+                    <p>Texas Instruments TI-84 Plus CE graphing calculator with 15+ pre-loaded games. Fully functional with minor cosmetic wear.</p>
+                    <a href="https://ebay.us/m/UXphjb" class="buy-button" target="_blank">Buy on eBay →</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ebayimg.com/images/g/584AAeSwr3No9o4u/s-l1600.jpg" alt="TI-84 Plus CE Calculator with Games" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">TI-84 Plus CE - Open Box</h3>
+                    <span class="product-condition">New - Open Box</span>
+                    <p class="product-price">$135.00</p>
+                    <p>Texas Instruments TI-84 Plus CE in excellent condition. Opened for game installation, works like new with no functional defects.</p>
+                    <a href="https://ebay.us/m/FkWDZR" class="buy-button" target="_blank">Buy on eBay →</a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ebayimg.com/images/g/iPUAAeSwWwZo9pE0/s-l1600.jpg" alt="TI-84 Plus CE Python Calculator with Games" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">TI-84 Plus CE Python - Open Box</h3>
+                    <span class="product-condition">New - Open Box</span>
+                    <p class="product-price">$135.00</p>
+                    <p>TI-84 Plus CE with advanced programming capabilities plus 15+ games pre-loaded. Excellent condition.</p>
+                    <a href="https://ebay.us/m/9S9gWB" class="buy-button" target="_blank">Buy on eBay →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="games-section">
+            <h2>🎯 Pre-Loaded Games Included</h2>
+            <div class="games-grid">
+                <div class="game-item">🦖 Google Dino Run</div>
+                <div class="game-item">🍌 Donkey Kong</div>
+                <div class="game-item">🐦 Flappy Bird</div>
+                <div class="game-item">🧩 Puzzle Frenzy</div>
+                <div class="game-item">📐 Geometry Dash</div>
+                <div class="game-item">⛏️ Minecraft 2D</div>
+                <div class="game-item">🍄 Super Mario</div>
+                <div class="game-item">🏔️ Oregon Trail</div>
+                <div class="game-item">👻 Pac-Man</div>
+                <div class="game-item">🏓 Pong</div>
+                <div class="game-item">🐍 Google Snake</div>
+                <div class="game-item">👾 Space Invaders</div>
+                <div class="game-item">🎨 Color Switch</div>
+                <div class="game-item">🟦 Tetris</div>
+                <div class="game-item">⭕ Tic-Tac-Toe</div>
+            </div>
+
+            <div class="custom-games">
+                <h3>🎮 Want More Games?</h3>
+                <p><strong>Custom Game Boy & Game Boy Color Games Available!</strong></p>
+                <p>We can add any Game Boy or Game Boy Color game to your calculator. Just contact us before or after purchase with your request, and we’ll install your favorite retro games!</p>
+                <p style="margin-top: 15px; color: #667eea; font-weight: bold;">Popular requests: Pokémon, Zelda, Mario, Kirby, and more!</p>
+            </div>
+        </div>
+
+        <div class="features">
+            <h2>Why Choose Our Gaming Calculators?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3>Fully Functional</h3>
+                    <p>All calculator functions work perfectly - use it for math class and gaming!</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎮</div>
+                    <h3>15+ Pre-Loaded Games</h3>
+                    <p>Instant entertainment with classic games ready to play out of the box.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Long Battery Life</h3>
+                    <p>AAA battery powered for easy replacement and extended gameplay.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <h3>Fast Shipping</h3>
+                    <p>Ships from Michigan with USPS Ground Advantage. Estimated 5-7 days delivery.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⭐</div>
+                    <h3>100% Positive Feedback</h3>
+                    <p>Trusted eBay seller with excellent customer service and ratings.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Custom Requests</h3>
+                    <p>Game Boy & Game Boy Color games can be added on request!</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h3 style="color: #667eea; margin-bottom: 15px;">Ready to Level Up Your Calculator?</h3>
+            <p>All calculators are sold through our eBay store for secure transactions and buyer protection.</p>
+            <div class="contact-info">
+                <p><strong>eBay Store:</strong> djarservices</p>
+                <p><strong>Location:</strong> Michigan</p>
+                <p><strong>Shipping:</strong> USPS Ground Advantage (5-7 business days)</p>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.9em; color: #999;">© 2026 Gaming Calculators. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
